@@ -35,7 +35,7 @@ MARVEEN_REF="${MARVEEN_REF:-main}"
 if [ -f "$(dirname "$0")/install-lang.sh" ]; then
   source "$(dirname "$0")/install-lang.sh"
 else
-  _lang_url="${MARVEEN_RAW_BASE:-https://raw.githubusercontent.com/Szotasz/marveen}/${MARVEEN_REF}/install-lang.sh"
+  _lang_url="${MARVEEN_RAW_BASE:-https://raw.githubusercontent.com/kotta-hu/marveen}/${MARVEEN_REF}/install-lang.sh"
   _lang_tmp="$(mktemp "${TMPDIR:-/tmp}/marveen-install-lang.XXXXXX")"
   _lang_ok=0
   if command -v curl >/dev/null 2>&1; then
@@ -50,7 +50,7 @@ else
     rm -f "$_lang_tmp"
     echo "Hiba: a telepito nyelvi fajlja (install-lang.sh) nem toltheto le: $_lang_url" >&2
     echo "Error: the installer's language file (install-lang.sh) could not be downloaded: $_lang_url" >&2
-    echo "  Kezzel / manually: git clone --branch ${MARVEEN_REF} https://github.com/Szotasz/marveen.git ~/marveen && bash ~/marveen/install-linux.sh" >&2
+    echo "  Kezzel / manually: git clone --branch ${MARVEEN_REF} https://github.com/kotta-hu/marveen.git ~/marveen && bash ~/marveen/install-linux.sh" >&2
     exit 1
   fi
   unset _lang_url _lang_tmp _lang_ok
@@ -64,7 +64,7 @@ offer_claude_fallback() {
   fi
   echo ""
   echo -e "${ORANGE}Claude Code elerheto a gepen.${NC}"
-  local prompt="Marveen installer failed at step \"${step}\". Error: ${err_msg}. Script: install-linux.sh${line_info}. Repo: https://github.com/Szotasz/marveen. OS: $(lsb_release -ds 2>/dev/null || cat /etc/os-release 2>/dev/null | head -1 || echo Linux). Node: $(node -v 2>/dev/null || echo missing). Dir: ${INSTALL_DIR}. Your task: diagnose this Marveen installer failure. The install scripts are install.sh (macOS) and install-linux.sh. Read the relevant section, check for missing dependencies or permission issues, and suggest concrete shell commands to fix."
+  local prompt="Marveen installer failed at step \"${step}\". Error: ${err_msg}. Script: install-linux.sh${line_info}. Repo: https://github.com/kotta-hu/marveen. OS: $(lsb_release -ds 2>/dev/null || cat /etc/os-release 2>/dev/null | head -1 || echo Linux). Node: $(node -v 2>/dev/null || echo missing). Dir: ${INSTALL_DIR}. Your task: diagnose this Marveen installer failure. The install scripts are install.sh (macOS) and install-linux.sh. Read the relevant section, check for missing dependencies or permission issues, and suggest concrete shell commands to fix."
   if [ -t 0 ]; then
     read -rp "$(_t prompt_open_claude)" OPEN_CLAUDE
     OPEN_CLAUDE=${OPEN_CLAUDE:-n}
@@ -245,7 +245,7 @@ case "$INSTALL_DIR" in
     echo -e "  A /mnt/ alatti mappakon a git es az npm jogosultsag-muveletei nem mukodnek (WSL/drvfs) -- a telepites itt elhalna."
     echo -e "  ${DIM}Kiut: klonozd a Linux home-ba, es onnan futtasd (masold az alabbi sorokat):${NC}"
     echo "    cd ~"
-    echo "    git clone --branch main https://github.com/Szotasz/marveen.git"
+    echo "    git clone --branch main https://github.com/kotta-hu/marveen.git"
     echo "    cd marveen && ./install.sh"
     exit 1
     ;;
@@ -574,8 +574,8 @@ if [ ! -f "$INSTALL_DIR/package.json" ]; then
     # A repo default branch-e a develop, de a publikus telepito main-rol fut
     # (a Windows/WSL wrapper is main-rol fetcheli a scriptet) -> pineljuk a main-t.
     # MARVEENLANG1763: the same ref the language file came from (default main).
-    git clone --depth 1 --branch "$MARVEEN_REF" https://github.com/Szotasz/marveen.git "$TARGET_DIR" \
-      || fail "git clone sikertelen: https://github.com/Szotasz/marveen.git (${MARVEEN_REF} branch)"
+    git clone --depth 1 --branch "$MARVEEN_REF" https://github.com/kotta-hu/marveen.git "$TARGET_DIR" \
+      || fail "git clone sikertelen: https://github.com/kotta-hu/marveen.git (${MARVEEN_REF} branch)"
     ok "Repo klonozva: $TARGET_DIR"
   fi
   echo -e "  Telepito ujrainditasa a checkoutbol..."

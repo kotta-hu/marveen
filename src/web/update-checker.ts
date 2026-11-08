@@ -53,7 +53,7 @@ let updateStatusCache: UpdateStatus = {
   latest: '',
   behind: 0,
   commits: [],
-  remote: 'Szotasz/marveen',
+  remote: 'kotta-hu/marveen',
   lastChecked: 0,
 }
 
@@ -204,7 +204,7 @@ export function parseGitHubRemote(root: string = PROJECT_ROOT): string {
       if (m) return m[1]
     } catch { /* try the next remote */ }
   }
-  return 'Szotasz/marveen'
+  return 'kotta-hu/marveen'
 }
 
 type GhCompare = {

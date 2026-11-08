@@ -9,7 +9,7 @@
 [![Ollama](https://img.shields.io/badge/Ollama-nomic--embed-000000?logo=ollama&logoColor=white)](https://ollama.com/)
 [![Telegram](https://img.shields.io/badge/Telegram-Bot_API-26A5E4?logo=telegram&logoColor=white)](https://core.telegram.org/bots)
 [![Slack](https://img.shields.io/badge/Slack-Socket_Mode-4A154B?logo=slack&logoColor=white)](https://api.slack.com/)
-[![GitHub stars](https://img.shields.io/github/stars/Szotasz/marveen?style=social)](https://github.com/Szotasz/marveen)
+[![GitHub stars](https://img.shields.io/github/stars/kotta-hu/marveen?style=social)](https://github.com/kotta-hu/marveen)
 
 > AI csapatod, ami fut amíg te alszol.
 
@@ -75,7 +75,7 @@ Minden ágens saját, réteges memóriával rendelkezik (hot / warm / cold / sha
 
 ```bash
 cd ~
-git clone --branch main https://github.com/Szotasz/marveen.git
+git clone --branch main https://github.com/kotta-hu/marveen.git
 cd marveen
 ./install.sh
 ```
@@ -89,12 +89,12 @@ Alapértelmezés szerint a dashboard a 3420-as porton indul (`http://localhost:3
 ### Windows (WSL)
 
 ```powershell
-irm https://raw.githubusercontent.com/Szotasz/marveen/main/install-windows.ps1 | iex
+irm https://raw.githubusercontent.com/kotta-hu/marveen/main/install-windows.ps1 | iex
 ```
 
 Vagy manuálisan:
 ```powershell
-git clone --branch main https://github.com/Szotasz/marveen.git
+git clone --branch main https://github.com/kotta-hu/marveen.git
 cd marveen
 .\install-windows.ps1
 ```
@@ -103,7 +103,7 @@ A Windows telepítő automatikusan beállítja a WSL-t (Windows Subsystem for Li
 
 > **Ha a PowerShell ablak bezárul / a telepítő nem jut túl a WSL+Ubuntu lépésen:** nyisd meg az Ubuntu-t (Start menü → Ubuntu), majd a WSL Ubuntu shellben futtasd közvetlenül a Linux-telepítőt (a PowerShell wrapper megkerülése):
 > ```bash
-> cd ~ && curl -fsSL https://raw.githubusercontent.com/Szotasz/marveen/main/install-linux.sh -o install.sh && bash install.sh
+> cd ~ && curl -fsSL https://raw.githubusercontent.com/kotta-hu/marveen/main/install-linux.sh -o install.sh && bash install.sh
 > ```
 > Ez a megbízható út, ha a `wsl.exe`/Windows-claude környezet összeakad.
 
@@ -298,7 +298,7 @@ claude setup-token
 # 2. A VPS-en:
 export CLAUDE_CODE_OAUTH_TOKEN=sk-ant-oat01-...
 cd ~
-git clone --branch main https://github.com/Szotasz/marveen.git
+git clone --branch main https://github.com/kotta-hu/marveen.git
 cd marveen
 ./install.sh    # automatikusan install-linux.sh-t futtat
 ```
@@ -339,4 +339,4 @@ A Marveen több külső projektre és koncepcióra épít. A teljes felsorolás 
 
 **Szota Szabolcs** -- AI konzultáns, az "AI a mindennapokban" csatorna készítője
 
-[![GitHub](https://img.shields.io/github/stars/Szotasz/marveen?style=social)](https://github.com/Szotasz/marveen)
+[![GitHub](https://img.shields.io/github/stars/kotta-hu/marveen?style=social)](https://github.com/kotta-hu/marveen)

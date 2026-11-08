@@ -104,7 +104,7 @@ if ($go) {
     # No double quotes and no `$` inside this string on purpose: nothing for
     # PowerShell to strip or expand on its way to bash. The script is saved to
     # a file first so bash gets the terminal as stdin and the prompts work.
-    wsl -d $distroName -- bash -c "curl -fsSL https://raw.githubusercontent.com/Szotasz/marveen/main/install-linux.sh -o /tmp/marveen-install.sh && bash /tmp/marveen-install.sh"
+    wsl -d $distroName -- bash -c "curl -fsSL https://raw.githubusercontent.com/kotta-hu/marveen/main/install-linux.sh -o /tmp/marveen-install.sh && bash /tmp/marveen-install.sh"
     if ($LASTEXITCODE -eq 0) {
         Write-Host ""
         Write-Host "  ✓ Marveen telepítve az Ubuntu-ban (install-linux.sh)." -ForegroundColor Green
@@ -119,7 +119,7 @@ if ($go) {
 Write-Host ""
 Write-Host "  Fejezd be így: indítsd el az Ubuntu-t (Start menü -> Ubuntu), állítsd" -ForegroundColor Yellow
 Write-Host "  be a felhasználót ha még nem tetted, majd az Ubuntu shellben futtasd:" -ForegroundColor Yellow
-Write-Host "    curl -fsSL https://raw.githubusercontent.com/Szotasz/marveen/main/install-linux.sh -o install.sh && bash install.sh" -ForegroundColor Cyan
+Write-Host "    curl -fsSL https://raw.githubusercontent.com/kotta-hu/marveen/main/install-linux.sh -o install.sh && bash install.sh" -ForegroundColor Cyan
 Write-Host "  (vagy indítsd újra ezt a PowerShell scriptet, ha kell a gép-újraindítás)" -ForegroundColor DarkGray
 if ($go) { exit 1 }
 exit 0

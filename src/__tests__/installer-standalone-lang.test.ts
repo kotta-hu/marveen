@@ -172,7 +172,7 @@ describe.each(shells)('install-linux.sh run on its own (%s)', (shell) => {
     expect(r.stdout).not.toContain('LANG_OK')
     expect(r.stderr).toContain('Hiba: a telepito nyelvi fajlja (install-lang.sh) nem toltheto le')
     expect(r.stderr).toContain("Error: the installer's language file (install-lang.sh) could not be downloaded")
-    expect(r.stderr).toContain('git clone --branch main https://github.com/Szotasz/marveen.git')
+    expect(r.stderr).toContain('git clone --branch main https://github.com/kotta-hu/marveen.git')
     expect(left).toEqual([])
   })
 
@@ -204,7 +204,7 @@ describe('pins', () => {
   })
   it('the self-reclone uses the same ref as the language file', () => {
     expect(SCRIPT).toContain('MARVEEN_REF="${MARVEEN_REF:-main}"')
-    expect(SCRIPT).toContain('git clone --depth 1 --branch "$MARVEEN_REF" https://github.com/Szotasz/marveen.git "$TARGET_DIR"')
+    expect(SCRIPT).toContain('git clone --depth 1 --branch "$MARVEEN_REF" https://github.com/kotta-hu/marveen.git "$TARGET_DIR"')
   })
   it('install-lang.sh defines _t at a line start (the marker the loader checks)', () => {
     expect(LANG).toMatch(/^_t\(\) \{/m)
