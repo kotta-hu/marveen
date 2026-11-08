@@ -77,3 +77,20 @@ describe('resolveTranscriptLocation: isolated config root', () => {
     mkdirSync(join(tmp, 'unused'), { recursive: true })
   })
 })
+
+describe('resolveTranscriptLocation: auto-provisioned sub-agent config root', () => {
+  // The launcher auto-provisions agents/<name>/.claude-config when no
+  // claudeConfigDir field is set, and the session writes its transcript there.
+  // The listing must read that root (like the context-guard does), otherwise
+  // contextTokens is null on the agents page.
+  const name = `autoprov-cfg-${process.pid}`
+  const agentRoot = join(PROJECT_ROOT, 'agents', name)
+  const isolated = join(agentRoot, '.claude-config')
+
+  beforeAll(() => { mkdirSync(join(isolated, 'projects'), { recursive: true }) })
+  afterAll(() => { rmSync(agentRoot, { recursive: true, force: true }) })
+
+  it('points a sub-agent with no configured root at its auto-provisioned .claude-config', () => {
+    expect(resolveTranscriptLocation(name).configDir).toBe(isolated)
+  })
+})

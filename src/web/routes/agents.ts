@@ -61,7 +61,7 @@ import {
   type AuthMode,
   readJsonObjectForWrite,
 } from '../agent-config.js'
-import { readClaudePlans, resolveAgentConfigDir } from '../claude-plans.js'
+import { readClaudePlans } from '../claude-plans.js'
 import {
   readAgentTeam,
   writeAgentTeam,
@@ -504,7 +504,7 @@ interface AgentDetail extends AgentSummary {
 // launcher's logic is how the two paths drift.
 export function resolveTranscriptLocation(name: string): { workingDir: string; configDir: string | undefined } {
   if (!isMainChannelsAgent(name)) {
-    return { workingDir: agentDir(name), configDir: resolveAgentConfigDir(name).configDir ?? undefined }
+    return { workingDir: agentDir(name), configDir: configDirFor(name) }
   }
   const isolated = join(PROJECT_ROOT, '.channels-config')
   return {
